@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+
+  //* {
+  //  outline: 1px solid black;
+  //}
+}
+
+.topBlock {
+  padding: 20px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.botBlock {
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.first {
+  width: 37%;
+  height: 350px;
+}
+
+.second {
+  width: 37%;
+  height: 350px;
+}
+
+.third {
+  width: 26%;
+  height: 350px;
+}
+
+.forth {
+  width: 37%;
+  height: 350px;
+}
+
+.fife {
+  width: 37%;
+  height: 350px;
+}
+
+.six {
+  width: 26%;
+  height: 350px;
+}

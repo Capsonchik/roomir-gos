@@ -1,0 +1,23 @@
+.container {
+  padding: 40px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemPercent {
+  margin-right: 16px;
+}
+
+.iconUp {
+  font-size: 30px;
+  color: green;
+}
+
+.iconDown {
+  font-size: 30px;
+  color: red;
+}
