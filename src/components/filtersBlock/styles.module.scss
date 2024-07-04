@@ -1,0 +1,16 @@
+.filterBlock {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.block {
+  height: 400px;
+  width: 400px;
+  overflow: auto;
+}
+
+.item {
+  width: 400px;
+}
+
