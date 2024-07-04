@@ -3,6 +3,7 @@ import {SpendingRate} from "../charts/SpendingRate";
 import {PriceDinamyc} from "../priceDinamic/PriceDinamyc";
 import {Deflator} from "../charts/Deflator";
 import {PurchasingActivityIndex} from "../charts/PurchasingActivityIndex";
+import {AverageCheckDynamics} from "../charts/AverageCheckDynamics";
 export const MaterialSphere = () => {
   return (
     <div className={styles.container}>
@@ -22,6 +23,7 @@ export const MaterialSphere = () => {
       <div className={styles.botBlock}>
         <div className={styles.forth}>
           <p>Динамика среднего чека</p>
+          <AverageCheckDynamics/>
         </div>
         <div className={styles.fife}>
           <p>Дефлятор</p>

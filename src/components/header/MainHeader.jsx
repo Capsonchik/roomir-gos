@@ -1,4 +1,4 @@
-import {Heading, Nav, Navbar} from "rsuite";
+import {Nav, Navbar} from "rsuite";
 import CogIcon from '@rsuite/icons/legacy/Cog';
 import styles from './styles.module.scss';
 import {FiltersBlock} from "../filtersBlock/FiltersBlock";
@@ -7,7 +7,7 @@ export const MainHeader = () => {
   return (
     <header>
       <Navbar appearance={'subtle'}>
-        <Navbar.Brand href="#">ROOMIR</Navbar.Brand>
+        <Navbar.Brand href="#">РОМИР</Navbar.Brand>
         <Nav>
           <Nav.Item>Социальная сфера</Nav.Item>
           <Nav.Item>Материальная сфера</Nav.Item>
