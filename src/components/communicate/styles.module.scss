@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  //* {
+  //  outline: 1px solid black;
+  //}
+}
+
+.containerBlock {
+  width: 25%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blockItem {
+  display: flex;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 16px;
+  text-align: center;
+  color: black;
+  font-size: 18px;
+}
+
+
