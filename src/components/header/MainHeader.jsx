@@ -7,7 +7,9 @@ export const MainHeader = () => {
   return (
     <header>
       <Navbar appearance={'subtle'}>
-        <Navbar.Brand href="#">РОМИР</Navbar.Brand>
+        <Navbar.Brand href="#">
+          <img style={{width: 100, height: 30}} src={'./roomir-logo.png'} alt={'logo'}/>
+        </Navbar.Brand>
         <Nav>
           <Nav.Item>Социальная сфера</Nav.Item>
           <Nav.Item>Материальная сфера</Nav.Item>
