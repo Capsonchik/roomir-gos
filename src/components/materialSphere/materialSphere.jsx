@@ -4,12 +4,14 @@ import {PriceDinamyc} from "../priceDinamic/PriceDinamyc";
 import {Deflator} from "../charts/Deflator";
 import {PurchasingActivityIndex} from "../charts/PurchasingActivityIndex";
 import {AverageCheckDynamics} from "../charts/AverageCheckDynamics";
+import {IndexFreeCash} from "../charts/indexFreeCash";
 export const MaterialSphere = () => {
   return (
     <div className={styles.container}>
       <div className={styles.topBlock}>
         <div className={styles.first}>
           <p>Индекс свободных денег</p>
+          <IndexFreeCash/>
         </div>
         <div className={styles.second}>
           <p>Индекс покупательской активности</p>

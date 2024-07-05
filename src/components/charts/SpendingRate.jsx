@@ -21,8 +21,9 @@ export const SpendingRate = () => {
           borderRadius: 10
         },
         label: {
-          show: false,
-          position: 'center'
+          show: true,
+          position: 'inside',
+          formatter: '{d}%'
         },
         emphasis: {
           label: {
