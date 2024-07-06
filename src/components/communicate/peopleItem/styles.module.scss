@@ -1,0 +1,35 @@
+.itemBlock {
+  padding: 0 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  & span {
+    margin-left: 16px;
+  }
+}
+
+.raiting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  z-index: 1;
+}
+
+.text {
+  opacity: 1;
+  color: black;
+  z-index: 899;
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+}

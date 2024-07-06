@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import {RatingItem} from "./item/RatingItem";
-import {COMMUNICATE_TV, COMMUNICATE_RADIO, COMMUNICATE_SITE} from "../consts/comunicateConst";
+import {COMMUNICATE_TV, COMMUNICATE_RADIO, COMMUNICATE_SITE, COMMUNICATE_POLITIC} from "../consts/comunicateConst";
+import {PeopleItem} from "./peopleItem/PeopleItem";
 
 export const Communicate = () => {
 
@@ -34,7 +35,9 @@ export const Communicate = () => {
       <div className={styles.containerBlock}>
         <p className={styles.title}>Рейтинг доверия</p>
         <div className={styles.items}>
-
+          {COMMUNICATE_POLITIC.map((item) => {
+            return <PeopleItem key={item.id} obj={item}/>
+          })}
         </div>
       </div>
     </div>
