@@ -1,6 +1,6 @@
 import ReactECharts from "echarts-for-react";
 
-export const Deflator = () => {
+export const Deflator = ({data}) => {
   const option = {
     tooltip: {
       trigger: 'axis',
@@ -17,7 +17,9 @@ export const Deflator = () => {
     xAxis: [
       {
         type: 'category',
-        data: ['2021-05', '2021-06', '2021-07', '2021-08', '2021-09'],
+        // data: ['2021-05', '2021-06', '2021-07', '2021-08', '2021-09'],
+        // data: data && data.period,
+        data: !data.length ? data.period : ['2021-05', '2021-06', '2021-07', '2021-08', '2021-09'],
         axisTick: {
           alignWithLabel: true
         }
@@ -34,7 +36,9 @@ export const Deflator = () => {
         type: 'bar',
         barWidth: '50%',
         color: '#FF8200',
-        data: [10, 52, 200, 334, 390]
+        // data: [10, 52, 200, 334, 390]
+        // data: data && data.value
+        data: !data.length ? data.value : [10, 52, 200, 334, 390]
       }
     ]
   };
