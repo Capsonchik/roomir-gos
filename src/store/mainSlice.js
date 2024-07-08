@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {fetchGetCartRegion, fetchGetDeflyator} from "./actions";
+import {fetchGetCartRegion, fetchGetDeflyator, fetchGetSpendingRate} from "./actions";
 
 const initialState = {
   cartRegions: [],
   priceDynamic: [],
+  socialGoods: [],
   spendingRate: [],
   deflation: {}
 }
@@ -29,6 +30,9 @@ export const mainSlice = createSlice({
       })
       .addCase(fetchGetDeflyator.fulfilled, (state, action) => {
         state.deflation = action.payload
+      })
+      .addCase(fetchGetSpendingRate.fulfilled, (state, action) => {
+        state.spendingRate = action.payload
       })
   }
 })

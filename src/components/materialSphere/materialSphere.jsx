@@ -7,17 +7,19 @@ import {AverageCheckDynamics} from "../charts/AverageCheckDynamics";
 import {IndexFreeCash} from "../charts/indexFreeCash";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {fetchGetDeflyator} from "../../store/actions";
-import {selectDeflyator} from "../../store/selectors";
-import {Loader} from "rsuite";
+import {fetchGetDeflyator, fetchGetSpendingRate} from "../../store/actions";
+import {selectDeflyator, selectSpendingRate} from "../../store/selectors";
+
 export const MaterialSphere = () => {
   const dispatch = useDispatch();
 
   const deflyator = useSelector(selectDeflyator)
+  const spendingRate = useSelector(selectSpendingRate);
 
   useEffect(() => {
     dispatch(fetchGetDeflyator())
-  }, []);
+    dispatch(fetchGetSpendingRate())
+  }, [dispatch]);
 
 
   return (
@@ -33,7 +35,7 @@ export const MaterialSphere = () => {
         </div>
         <div className={styles.third}>
           <p>Доля трат</p>
-          <SpendingRate/>
+          <SpendingRate data={spendingRate}/>
         </div>
       </div>
       <div className={styles.botBlock}>
@@ -45,19 +47,6 @@ export const MaterialSphere = () => {
           <p>Дефлятор</p>
           <Deflator data={deflyator}/>
         </div>
-        {/*{!deflyator.length*/}
-        {/*  ? (*/}
-        {/*    <div className={styles.fife}>*/}
-        {/*      <p>Дефлятор</p>*/}
-        {/*      <Deflator data={deflyator}/>*/}
-        {/*    </div>*/}
-        {/*  )*/}
-        {/*  : (*/}
-        {/*    <div className={styles.fifeWithLoader}>*/}
-        {/*      <Loader size="md" content="Загрузка данных" />*/}
-        {/*    </div>*/}
-        {/*  )*/}
-        {/*}*/}
         <div className={styles.six}>
           <p>Динамика цены на соц. значимые группы товаров</p>
           <PriceDinamyc/>

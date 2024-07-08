@@ -33,3 +33,19 @@ export const fetchGetDeflyator = createAsyncThunk(
     }
   }
 );
+
+export const fetchGetSpendingRate = createAsyncThunk(
+  'spendingRate',
+  async (userData) => {
+    try {
+      const response = await axiosRequest.get(API_ROUTES.spendingRate);
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return 'error';
+      }
+    } catch (error) {
+      return 'throwError(error)';
+    }
+  }
+);

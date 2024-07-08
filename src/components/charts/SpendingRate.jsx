@@ -1,6 +1,6 @@
 import ReactECharts from 'echarts-for-react';
 
-export const SpendingRate = () => {
+export const SpendingRate = ({data}) => {
   const option = {
     tooltip: {
       trigger: 'item'
@@ -35,12 +35,20 @@ export const SpendingRate = () => {
         labelLine: {
           show: false
         },
-        data: [
-          { value: 1048, name: 'Непродовольственные товары'},
-          { value: 735, name: 'Продовольственные товары' },
-          { value: 580, name: 'Услуги + АЗС' },
-          { value: 484, name: 'HoReCa' },
-        ]
+        // data: [
+        //   { value: 1048, name: 'Непродовольственные товары'},
+        //   { value: 735, name: 'Продовольственные товары' },
+        //   { value: 580, name: 'Услуги + АЗС' },
+        //   { value: 484, name: 'HoReCa' },
+        // ]
+        data: !data ? data : (
+          [
+            { value: 1048, name: 'Непродовольственные товары'},
+            { value: 735, name: 'Продовольственные товары' },
+            { value: 580, name: 'Услуги + АЗС' },
+            { value: 484, name: 'HoReCa' },
+          ]
+        )
       }
     ]
   };
