@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
+import {fetchGetCartRegion} from "./actions";
 
 const initialState = {
-  value: 0,
+  cartRegions: []
 }
 
 export const mainSlice = createSlice({
@@ -18,6 +19,12 @@ export const mainSlice = createSlice({
       state.value += action.payload
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchGetCartRegion.fulfilled, (state, action) => {
+        state.cartRegions = action.payload
+      })
+  }
 })
 
 export const { increment, decrement, incrementByAmount } = mainSlice.actions

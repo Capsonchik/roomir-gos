@@ -1,0 +1,1 @@
+export const selectCartRegions = (state) => state.main.cartRegions;

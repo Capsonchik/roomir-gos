@@ -6,8 +6,11 @@ export const CityItem = ({obj}) => {
 
   return (
     <div className={styles.container}>
-      <span>{obj}</span>
-      <ArrowUpIcon className={styles.iconUp}/>
+      <span>{obj.region}</span>
+      <div className={styles.stat}>
+        <span>400</span>
+        {obj.Icon === 'up' ? <ArrowUpIcon className={styles.iconUp}/> : <ArrowDownIcon className={styles.iconDown}/>}
+      </div>
     </div>
   );
 };

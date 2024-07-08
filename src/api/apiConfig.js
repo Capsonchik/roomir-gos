@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export const API = 'https://192.168.9.239/'
+export const API = 'http://192.168.9.239:8800/'
 
 const createAxiosLoginInstance = () => {
   const instance = axios.create({
     baseURL: API,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
       'Accept-Language': 'ru',
     },
     withCredentials: true
