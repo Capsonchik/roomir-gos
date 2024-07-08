@@ -17,9 +17,11 @@ export const TopHeader = () => {
           <Link className={location === '/' ? styles.activeLink : styles.link} to="/">Социальная сфера</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link className={location === '/communicate' ? styles.activeLink : styles.link} to={'/communicate'}>Материальная сфера</Link>
+          <Link className={location === '/material' ? styles.activeLink : styles.link} to={'/material'}>Материальная сфера</Link>
         </Nav.Item>
-        <Nav.Item>Коммуникация</Nav.Item>
+        <Nav.Item>
+          <Link className={location === '/communicate' ? styles.activeLink : styles.link} to={'/communicate'}>Коммуникация</Link>
+        </Nav.Item>
         <Nav.Item>
           <Link className={location === '/map' ? styles.activeLink : styles.link} to={'/map'}>Картография</Link>
         </Nav.Item>
