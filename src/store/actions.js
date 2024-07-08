@@ -49,3 +49,19 @@ export const fetchGetSpendingRate = createAsyncThunk(
     }
   }
 );
+
+export const fetchGetPriceDynamic = createAsyncThunk(
+  'priceDynamic',
+  async (userData) => {
+    try {
+      const response = await axiosRequest.get(API_ROUTES.priceDynamic);
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return 'error';
+      }
+    } catch (error) {
+      return 'throwError(error)';
+    }
+  }
+);
