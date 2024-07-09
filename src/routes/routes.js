@@ -10,9 +10,10 @@ export const router = createBrowserRouter([
     path: '/',
     element: <App/>,
     children: [
-      { index: true, element: <SocialSphere/> },
+      // { index: true, element: <SocialSphere/> },
+      { index: true, element: <MaterialSphere/> },
       { path: '/communicate', element: <Communicate/> },
-      {path: '/material', element: <MaterialSphere/> },
+      {path: '/social', element: <SocialSphere/> },
     ],
   },
   {

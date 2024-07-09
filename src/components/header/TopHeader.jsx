@@ -12,18 +12,17 @@ export const TopHeader = () => {
         <img style={{width: 100, height: 30}} src={'./roomir-logo.png'} alt={'logo'}/>
       </Navbar.Brand>
       <Nav>
-
         <Nav.Item>
-          <Link className={location === '/' ? styles.activeLink : styles.link} to="/">Социальная сфера</Link>
+          <Link className={location === '/' ? styles.activeLink : styles.link} to={'/'}>Материальная сфера</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link className={location === '/material' ? styles.activeLink : styles.link} to={'/material'}>Материальная сфера</Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link className={location === '/communicate' ? styles.activeLink : styles.link} to={'/communicate'}>Коммуникация</Link>
+          <Link className={location === '/social' ? styles.activeLink : styles.link} to="/social">Социальная сфера</Link>
         </Nav.Item>
         <Nav.Item>
           <Link className={location === '/map' ? styles.activeLink : styles.link} to={'/map'}>Картография</Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Link className={location === '/communicate' ? styles.activeLink : styles.link} to={'/communicate'}>Коммуникация</Link>
         </Nav.Item>
       </Nav>
       <Nav pullRight>

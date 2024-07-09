@@ -20,8 +20,7 @@ export const MaterialSphere = () => {
     dispatch(fetchGetDeflyator());
     dispatch(fetchGetSpendingRate());
     dispatch(fetchGetPriceDynamic());
-  }, []);
-
+  }, [dispatch]);
 
   return (
     <div className={styles.container}>
