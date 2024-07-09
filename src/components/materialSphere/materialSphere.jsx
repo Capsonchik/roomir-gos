@@ -7,7 +7,13 @@ import {AverageCheckDynamics} from "../charts/AverageCheckDynamics";
 import {IndexFreeCash} from "../charts/indexFreeCash";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {fetchGetDeflyator, fetchGetPriceDynamic, fetchGetSpendingRate} from "../../store/actions";
+import {
+  fetchGetAverageCheck,
+  fetchGetDeflyator, fetchGetFreeCashIndex,
+  fetchGetPriceDynamic,
+  fetchGetPurchasingActivityIndex,
+  fetchGetSpendingRate
+} from "../../store/actions";
 import {selectDeflyator, selectSpendingRate} from "../../store/selectors";
 
 export const MaterialSphere = () => {
@@ -20,6 +26,9 @@ export const MaterialSphere = () => {
     dispatch(fetchGetDeflyator());
     dispatch(fetchGetSpendingRate());
     dispatch(fetchGetPriceDynamic());
+    dispatch(fetchGetPurchasingActivityIndex())
+    dispatch(fetchGetFreeCashIndex())
+    dispatch(fetchGetAverageCheck())
   }, [dispatch]);
 
   return (

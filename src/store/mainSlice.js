@@ -1,12 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {fetchGetCartRegion, fetchGetDeflyator, fetchGetPriceDynamic, fetchGetSpendingRate} from "./actions";
+import {
+  fetchGetAverageCheck,
+  fetchGetCartRegion,
+  fetchGetDeflyator, fetchGetFreeCashIndex,
+  fetchGetPriceDynamic, fetchGetPurchasingActivityIndex,
+  fetchGetSpendingRate
+} from "./actions";
 
 const initialState = {
   cartRegions: [],
   priceDynamic: [],
   socialGoods: [],
   spendingRate: [],
-  deflation: {}
+  deflation: {},
+  purchasingActivityIndex: [],
+  freeCashIndex: [],
+  averageCheck: []
 }
 
 export const mainSlice = createSlice({
@@ -36,6 +45,15 @@ export const mainSlice = createSlice({
       })
       .addCase(fetchGetPriceDynamic.fulfilled, (state, action) => {
         state.priceDynamic = action.payload
+      })
+      .addCase(fetchGetPurchasingActivityIndex.fulfilled, (state, action) => {
+        state.purchasingActivityIndex = action.payload
+      })
+      .addCase(fetchGetFreeCashIndex.fulfilled, (state, action) => {
+        state.freeCashIndex = action.payload
+      })
+      .addCase(fetchGetAverageCheck.fulfilled, (state, action) => {
+        state.averageCheck = action.payload
       })
   }
 })
