@@ -4,4 +4,7 @@ export const API_ROUTES = {
   deflyator: '/deflyator',
   priceDynamic: '/dinamica_ceny_na_szgt',
   spendingRate: '/dolya_trat',
+  purchasingActivityIndex: '/index_pokupatelskoy_aktivnosti',
+  freeCachIndex: '/index_svobodnyh_deneg',
+  avarageCheck: '/dinamica_srednego_cheka'
 }

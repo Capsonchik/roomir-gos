@@ -2,6 +2,8 @@ import {axiosRequest} from "../api/apiConfig";
 import {API_ROUTES} from "../api/apiRoutes";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
+
+// Список регионов при отображении карты
 export const fetchGetCartRegion = createAsyncThunk(
   'user',
   async (userData) => {
@@ -18,6 +20,8 @@ export const fetchGetCartRegion = createAsyncThunk(
   }
 );
 
+
+// Дефлятор
 export const fetchGetDeflyator = createAsyncThunk(
   'deflyator',
   async (userData) => {
@@ -34,6 +38,8 @@ export const fetchGetDeflyator = createAsyncThunk(
   }
 );
 
+
+// Доля трат
 export const fetchGetSpendingRate = createAsyncThunk(
   'spendingRate',
   async (userData) => {
@@ -50,6 +56,7 @@ export const fetchGetSpendingRate = createAsyncThunk(
   }
 );
 
+// Динамика цены
 export const fetchGetPriceDynamic = createAsyncThunk(
   'priceDynamic',
   async (userData) => {
@@ -65,3 +72,59 @@ export const fetchGetPriceDynamic = createAsyncThunk(
     }
   }
 );
+
+
+// Индекс покупательской активности
+export const fetchGetPurchasingActivityIndex = createAsyncThunk(
+  'PurchasingActivityIndex',
+  async (userData) => {
+    try {
+      const response = await axiosRequest.get(API_ROUTES.purchasingActivityIndex);
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return 'error';
+      }
+    } catch (error) {
+      return 'throwError(error)';
+    }
+  }
+);
+
+// Индекс свободных денег
+export const fetchGetFreeCashIndex = createAsyncThunk(
+  'FreeCashIndex',
+  async (userData) => {
+    try {
+      const response = await axiosRequest.get(API_ROUTES.freeCachIndex);
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return 'error';
+      }
+    } catch (error) {
+      return 'throwError(error)';
+    }
+  }
+);
+
+
+// Динамика среднего чека
+export const fetchGetAverageCheck = createAsyncThunk(
+  'AverageCheck',
+  async (userData) => {
+    try {
+      const response = await axiosRequest.get(API_ROUTES.freeCachIndex);
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return 'error';
+      }
+    } catch (error) {
+      return 'throwError(error)';
+    }
+  }
+);
+
+
+
