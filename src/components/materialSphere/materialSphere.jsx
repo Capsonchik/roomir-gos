@@ -19,16 +19,18 @@ import {selectDeflyator, selectSpendingRate} from "../../store/selectors";
 export const MaterialSphere = () => {
   const dispatch = useDispatch();
 
-  const deflyator = useSelector(selectDeflyator)
+  const deflyator = useSelector(selectDeflyator);
   const spendingRate = useSelector(selectSpendingRate);
+
+
 
   useEffect(() => {
     dispatch(fetchGetDeflyator());
     dispatch(fetchGetSpendingRate());
     dispatch(fetchGetPriceDynamic());
-    dispatch(fetchGetPurchasingActivityIndex())
-    dispatch(fetchGetFreeCashIndex())
-    dispatch(fetchGetAverageCheck())
+    dispatch(fetchGetPurchasingActivityIndex());
+    dispatch(fetchGetFreeCashIndex());
+    dispatch(fetchGetAverageCheck());
   }, [dispatch]);
 
   return (

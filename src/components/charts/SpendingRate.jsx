@@ -35,13 +35,14 @@ export const SpendingRate = ({data}) => {
         labelLine: {
           show: false
         },
+        // Моковые данные для графика
         // data: [
         //   { value: 1048, name: 'Непродовольственные товары'},
         //   { value: 735, name: 'Продовольственные товары' },
         //   { value: 580, name: 'Услуги + АЗС' },
         //   { value: 484, name: 'HoReCa' },
         // ]
-        data: !data ? data : (
+        data: data ? data : (
           [
             { value: 1048, name: 'Непродовольственные товары'},
             { value: 735, name: 'Продовольственные товары' },
@@ -49,6 +50,7 @@ export const SpendingRate = ({data}) => {
             { value: 490, name: 'HoReCa' },
           ]
         )
+        // data: data
       }
     ]
   };
