@@ -6,7 +6,7 @@ export const IndexFreeCash = ({data}) => {
       trigger: 'axis',
     },
     legend: {
-      data: ['Индекс'],
+      data: ['Индекс', 'Динамика'],
     },
     xAxis: {
       type: 'category',
@@ -40,7 +40,7 @@ export const IndexFreeCash = ({data}) => {
         },
       },
       {
-        name: 'Индекс',
+        name: 'Динамика',
         type: 'line',
         data: data ? data.dynamics : [95, -9, -13, 15, -18],
         itemStyle: {
