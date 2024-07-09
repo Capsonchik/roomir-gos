@@ -14,13 +14,20 @@ import {
   fetchGetPurchasingActivityIndex,
   fetchGetSpendingRate
 } from "../../store/actions";
-import {selectDeflyator, selectSpendingRate} from "../../store/selectors";
+import {
+  selectDeflyator,
+  selectFreeCashIndex,
+  selectPurchasingActivityIndex,
+  selectSpendingRate
+} from "../../store/selectors";
 
 export const MaterialSphere = () => {
   const dispatch = useDispatch();
 
   const deflyator = useSelector(selectDeflyator);
   const spendingRate = useSelector(selectSpendingRate);
+  const purchasingActivityIndex = useSelector(selectPurchasingActivityIndex);
+  const freeCashIndex = useSelector(selectFreeCashIndex);
 
 
 
@@ -38,11 +45,11 @@ export const MaterialSphere = () => {
       <div className={styles.topBlock}>
         <div className={styles.first}>
           <p>Индекс свободных денег</p>
-          <IndexFreeCash/>
+          <IndexFreeCash data={freeCashIndex}/>
         </div>
         <div className={styles.second}>
           <p>Индекс покупательской активности</p>
-          <PurchasingActivityIndex/>
+          <PurchasingActivityIndex data={purchasingActivityIndex} />
         </div>
         <div className={styles.third}>
           <p>Доля трат</p>

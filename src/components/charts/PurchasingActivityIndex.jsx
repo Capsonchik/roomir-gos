@@ -1,6 +1,6 @@
 import ReactECharts from "echarts-for-react";
 
-export const PurchasingActivityIndex = () => {
+export const PurchasingActivityIndex = ({data}) => {
   const option = {
     // title: {
     //   text: 'Stacked Line'

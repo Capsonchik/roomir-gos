@@ -1,6 +1,6 @@
 import ReactECharts from "echarts-for-react";
 
-export const IndexFreeCash = () => {
+export const IndexFreeCash = ({data}) => {
   const option = {
     tooltip: {
       trigger: 'axis',
@@ -10,14 +10,15 @@ export const IndexFreeCash = () => {
     },
     xAxis: {
       type: 'category',
-      data: ['2021-05', '2021-06', '2021-07', '2021-08', '2021-09'],
+      data: data ? data.period : ['2021-05', '2021-06', '2021-07', '2021-08', '2021-09'],
     },
     yAxis: [
       {
         type: 'value',
         name: 'Процент',
-        min: -20,
-        max: 100,
+        // Параметры для отображения нижней и верхней границы графика
+        // min: -30,
+        // max: 100,
         position: 'left',
         axisLabel: {
           formatter: '{value} %',
@@ -28,7 +29,7 @@ export const IndexFreeCash = () => {
       {
         name: 'Индекс',
         type: 'bar',
-        data: [80, 46, 58, 34, -18],
+        data:  data ? data.index_value :[80, 46, 58, 34, -18],
         itemStyle: {
           color: 'rgba(238, 239, 244, 1)',
         },
@@ -41,7 +42,7 @@ export const IndexFreeCash = () => {
       {
         name: 'Индекс',
         type: 'line',
-        data: [95, -9, -13, 15, -18],
+        data: data ? data.dynamics : [95, -9, -13, 15, -18],
         itemStyle: {
           color: 'orange',
         },
