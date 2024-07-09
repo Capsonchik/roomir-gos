@@ -114,7 +114,7 @@ export const fetchGetAverageCheck = createAsyncThunk(
   'AverageCheck',
   async (userData) => {
     try {
-      const response = await axiosRequest.get(API_ROUTES.freeCachIndex);
+      const response = await axiosRequest.get(API_ROUTES.avarageCheck);
       if (response.status === 200) {
         return response.data;
       } else {

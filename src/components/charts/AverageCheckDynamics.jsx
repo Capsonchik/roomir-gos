@@ -1,84 +1,63 @@
 import ReactECharts from "echarts-for-react";
 
-export const AverageCheckDynamics = () => {
+export const AverageCheckDynamics = ({data}) => {
   const option = {
     tooltip: {
       trigger: 'axis',
-      axisPointer: {
-        type: 'cross',
-        crossStyle: {
-          color: '#999'
-        }
-      }
     },
-    // toolbox: {
-    //   feature: {
-    //     dataView: { show: true, readOnly: false },
-    //     magicType: { show: true, type: ['line', 'bar'] },
-    //     restore: { show: true },
-    //     saveAsImage: { show: true }
-    //   }
-    // },
     legend: {
-      data: ['Evaporation', 'Precipitation', 'Temperature']
+      data: ['Средний чек', 'Динамика'],
     },
-    xAxis: [
-      {
-        type: 'category',
-        data: ['2021-05', '2021-06', '2021-07', '2021-08', '2021-09'],
-        axisPointer: {
-          type: 'shadow'
-        }
-      }
-    ],
+    xAxis: {
+      type: 'category',
+      data: data ? data.year : ['2021-05', '2021-06', '2021-07', '2021-08', '2021-09'],
+    },
     yAxis: [
       {
         type: 'value',
-        name: 'Precipitation',
-        min: 0,
-        max: 250,
-        interval: 50,
+        name: 'Процент',
+        // Параметры для отображения нижней и верхней границы графика
+        // min: -30,
+        // max: 100,
+        position: 'left',
         axisLabel: {
-          formatter: '{value}'
-        }
+          formatter: '{value}',
+        },
       },
-      {
-        type: 'value',
-        name: 'Temperature',
-        min: 0,
-        max: 25,
-        interval: 5,
-        axisLabel: {
-          formatter: '{value} °C'
-        }
-      }
     ],
     series: [
-
       {
-        name: 'Precipitation',
+        name: 'Средний чек',
         type: 'bar',
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + ' ml';
-          }
+        data: data ? data.value : [80, 46, 58, 34, -18],
+        itemStyle: {
+          // color: 'rgba(238, 239, 244, 1)',
+          color: 'rgba(238, 239, 244, 1)',
         },
-        data: [
-          2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
-        ]
+        label: {
+          show: true,
+          formatter: '{c}',
+          position: 'top',
+        },
       },
       {
-        name: 'Temperature',
+        name: 'Динамика',
         type: 'line',
-        yAxisIndex: 1,
-        tooltip: {
-          valueFormatter: function (value) {
-            return value + ' °C';
-          }
+        data: data ? data.line_value : [95, -9, -13, 15, -18],
+        itemStyle: {
+          color: '#08912B',
         },
-        data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
-      }
-    ]
+        lineStyle: {
+          width: 3,
+        },
+        symbolSize: 10,
+        label: {
+          show: true,
+          formatter: '{c}%',
+          position: 'top',
+        },
+      },
+    ],
   };
 
   return (

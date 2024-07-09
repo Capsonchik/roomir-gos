@@ -15,6 +15,7 @@ import {
   fetchGetSpendingRate
 } from "../../store/actions";
 import {
+  selectAverageCheck,
   selectDeflyator,
   selectFreeCashIndex,
   selectPurchasingActivityIndex,
@@ -28,6 +29,7 @@ export const MaterialSphere = () => {
   const spendingRate = useSelector(selectSpendingRate);
   const purchasingActivityIndex = useSelector(selectPurchasingActivityIndex);
   const freeCashIndex = useSelector(selectFreeCashIndex);
+  const averageCheck = useSelector(selectAverageCheck);
 
 
 
@@ -59,7 +61,7 @@ export const MaterialSphere = () => {
       <div className={styles.botBlock}>
         <div className={styles.forth}>
           <p>Динамика среднего чека</p>
-          <AverageCheckDynamics/>
+          <AverageCheckDynamics data={averageCheck}/>
         </div>
         <div className={styles.fife}>
           <p>Дефлятор</p>
