@@ -39,7 +39,7 @@
     border-radius: 0;
     width:100%;
     height: 100%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 24px 24px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
 }
 .rf-map.open .district span {
     color: #FFF;
@@ -55,7 +55,7 @@
     stroke-linejoin: round;
 }
 .rf-map [data-code] {
-    fill: #337AB7;
+    fill: #FF8200;
     transition: fill 0.2s;
 }
 .rf-map [data-code]:hover {
@@ -151,15 +151,15 @@
 }
 /* Цвета регионов */
 .rf-map [data-code="RU-SAR"] {
-    fill: #116f21;
+    fill: #FF8200;
     cursor: pointer;
 }
 .rf-map [data-code="RU-SA"] {
-    fill: #d17520;
+    fill: #FF8200;
     cursor: pointer;
 }
 .rf-map [data-code="RU-KO"] {
-    fill: #901aad;
+    fill: #FF8200;
 }
 .rf-map [data-code="RU-SAR"]:hover {
     fill: #1bad33;

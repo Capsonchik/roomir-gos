@@ -5,9 +5,10 @@ import {REGION} from "../../consts/filterConsts";
 import {Map} from "../mapComponents/map/Map";
 import {useSelector} from "react-redux";
 import {selectCartRegions} from "../../../store/selectors";
+import {REGIONS_MOCK} from "../../consts/regionsMock";
+
 export const MapContainer = () => {
   const regions = useSelector(selectCartRegions);
-
   return (
     <div className={styles.container}>
       <div className={styles.map}>
@@ -16,7 +17,10 @@ export const MapContainer = () => {
       <div className={styles.stat}>
         <MapDropDown/>
         <div className={styles.cityBlock}>
-          {regions &&  regions.map((region) => {
+          {/*{regions &&  regions.map((region) => {*/}
+          {/*  return <CityItem key={region.id} obj={region}/>*/}
+          {/*})}*/}
+          {REGIONS_MOCK.map((region) => {
             return <CityItem key={region.id} obj={region}/>
           })}
         </div>

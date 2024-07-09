@@ -46,7 +46,7 @@ export const SpendingRate = ({data}) => {
             { value: 1048, name: 'Непродовольственные товары'},
             { value: 735, name: 'Продовольственные товары' },
             { value: 580, name: 'Услуги + АЗС' },
-            { value: 484, name: 'HoReCa' },
+            { value: 490, name: 'HoReCa' },
           ]
         )
       }

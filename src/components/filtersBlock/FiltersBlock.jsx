@@ -15,8 +15,10 @@ export const FiltersBlock = () => {
   return (
     <div className={styles.filterBlock}>
       <Dropdown title={`Регион: ${region}`}>
-        {REGION.map(region =>
-          <Dropdown.Item onClick={() => setRegion(region)}>{region}</Dropdown.Item>)}
+        <div style={{width: 'auto', height: 400, overflow: "auto"}}>
+          {REGION.map(region =>
+            <Dropdown.Item onClick={() => setRegion(region)}>{region}</Dropdown.Item>)}
+        </div>
       </Dropdown>
       <Dropdown title={`Пол: ${gender}`}>
         {GENDER.map(region =>

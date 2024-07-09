@@ -9,6 +9,7 @@ const createAxiosLoginInstance = () => {
     baseURL: API,
     headers: {
       Accept: 'application/json',
+      'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
       'Accept-Language': 'ru',
     },

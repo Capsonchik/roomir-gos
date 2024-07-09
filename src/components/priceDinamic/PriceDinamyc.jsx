@@ -36,21 +36,21 @@ export const PriceDinamyc = () => {
       <div className={styles.item}>
         <span>Масло сливочное</span>
         <div>
-          <span className={styles.itemPercent}>0.7</span>
+          <span className={styles.itemPercent}>0.7%</span>
           <ArrowDownIcon className={styles.iconDown}/>
         </div>
       </div>
       <div className={styles.item}>
         <span>Рыба мороженная</span>
         <div>
-          <span className={styles.itemPercent}>0.7</span>
+          <span className={styles.itemPercent}>0.7%</span>
           <ArrowUpIcon className={styles.iconUp}/>
         </div>
       </div>
       <div className={styles.item}>
         <span>Свинина</span>
         <div>
-          <span className={styles.itemPercent}>0.7</span>
+          <span className={styles.itemPercent}>0.7%</span>
           <ArrowUpIcon className={styles.iconUp}/>
         </div>
       </div>
