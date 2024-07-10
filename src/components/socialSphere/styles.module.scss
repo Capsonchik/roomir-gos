@@ -1,3 +1,60 @@
 .container {
   width: 100%;
+  //padding: 20px;
+}
+
+.categoties {
+  display: flex;
+  gap: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 16px;
+}
+
+.content {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.questions {
+  padding: 10px;
+  width: 20%;
+  height: 700px;
+  border: 1px solid #c5c6c7;
+  border-radius: 8px;
+}
+
+.bars {
+  width: 77%;
+  height: 700px;
+  padding: 10px;
+  border: 1px solid #c5c6c7;
+  border-radius: 8px;
+}
+
+.barItem {
+  display: flex;
+  align-items: center;
+  & p {
+    width: 200px;
+  }
+}
+
+.barChart {
+  width: 100%;
+}
+
+.questionBlock {
+  margin-top: 16px;
+
+  & span:first-child {
+    margin-right: 8px;
+  }
+}
+
+.pieChart {
+  margin-top: 16px;
 }
