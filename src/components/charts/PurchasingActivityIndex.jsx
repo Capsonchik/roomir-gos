@@ -1,6 +1,17 @@
 import ReactECharts from "echarts-for-react";
 
 export const PurchasingActivityIndex = ({data}) => {
+
+  const modifiedArray = data.map(obj => {
+    return {
+      name: obj.name,
+      type: 'line',
+      stack: 'Total',
+      data: obj.data,
+    };
+  });
+
+
   const option = {
     // title: {
     //   text: 'Stacked Line'
@@ -30,7 +41,7 @@ export const PurchasingActivityIndex = ({data}) => {
     yAxis: {
       type: 'value'
     },
-    series: [
+    series: data && modifiedArray ? modifiedArray : [
       {
         name: '2016',
         type: 'line',
