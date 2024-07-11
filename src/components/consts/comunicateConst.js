@@ -63,3 +63,16 @@ export const COMMUNICATE_POLITIC = [
   {id: 54, name: 'Песков', rating: 8.0, logo: 'https://ssp.rmh.ru/tibco/minec/Песков.png' },
   {id: 55, name: 'Зюганов', rating: 9.0, logo: 'https://ssp.rmh.ru/tibco/minec/Зюганов.png' },
 ]
+
+export const COMMUNICATE_CELEBRETIES = [
+  {id: 56, name: 'Соловьев', rating: 10.0, logo: 'https://ssp.rmh.ru/tibco/minec/Соловьев.png' },
+  {id: 57, name: 'Михалков', rating: 10.0, logo: 'https://ssp.rmh.ru/tibco/minec/Михалков.png' },
+  {id: 58, name: 'Малахов', rating: 2.0, logo: 'https://ssp.rmh.ru/tibco/minec/persons/Малахов%20Андрей.png' },
+  {id: 59, name: 'Дронов', rating: 3.0, logo: 'https://ssp.rmh.ru/tibco/minec/persons/Хабенский%20Константин.png' },
+  {id: 60, name: 'Воля', rating: 4.0, logo: 'https://ssp.rmh.ru/tibco/minec/persons/Воля%20Павел.png' },
+  {id: 61, name: 'Хабенский', rating: 5.0, logo: 'https://ssp.rmh.ru/tibco/minec/persons/Хабенский%20Константин.png' },
+  {id: 62, name: 'Скабеева', rating: 6.0, logo: 'https://ssp.rmh.ru/tibco/minec/persons/Хабенский%20Константин.png' },
+  {id: 63, name: 'Машков', rating: 7.0, logo: 'https://ssp.rmh.ru/tibco/minec/persons/Машков%20Владимир.png' },
+  {id: 64, name: 'Нагиев', rating: 8.0, logo: 'https://ssp.rmh.ru/tibco/minec/persons/Нагиев%20Дмитрий.png' },
+  {id: 65, name: 'Симоньян', rating: 9.0, logo: 'https://ssp.rmh.ru/tibco/minec/persons/Собчак%20Ксения.png' },
+]
