@@ -15,7 +15,8 @@ const initialState = {
   deflation: {},
   purchasingActivityIndex: [],
   freeCashIndex: [],
-  averageCheck: []
+  averageCheck: [],
+  mockParam: ''
 }
 
 export const mainSlice = createSlice({
@@ -31,6 +32,9 @@ export const mainSlice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload
     },
+    setMockParam: (state, action) => {
+      state.mockParam = action.payload
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -58,6 +62,11 @@ export const mainSlice = createSlice({
   }
 })
 
-export const { increment, decrement, incrementByAmount } = mainSlice.actions
+export const {
+  increment,
+  decrement,
+  incrementByAmount ,
+  setMockParam
+} = mainSlice.actions
 
 export default mainSlice.reducer

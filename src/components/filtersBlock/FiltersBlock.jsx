@@ -2,8 +2,11 @@ import {Dropdown} from "rsuite";
 import styles from './styles.module.scss';
 import {useState} from "react";
 import {REGION, AGE, GENDER, INCOME, SEGMENT, POLITIC, FAMILY, YEAR} from "../consts/filterConsts";
+import {useDispatch} from "react-redux";
+import {setMockParam} from "../../store/mainSlice";
 
 export const FiltersBlock = () => {
+  const dispatch = useDispatch();
   const [region, setRegion] = useState("Москва")
   const [gender, setGender] = useState("Все")
   const [age, setAge] = useState("Все")
@@ -12,6 +15,41 @@ export const FiltersBlock = () => {
   const [politic, setPolitic] = useState("Все")
   const [segment, setSegment] = useState("Все")
   const [year, setYear] = useState('2024')
+
+  const handleSetGender = (value) => {
+    setGender(value)
+    dispatch(setMockParam(value))
+  }
+
+  const handleSetAge = (value) => {
+    setAge(value)
+    dispatch(setMockParam(value))
+  }
+
+  const handleSetIncome = (value) => {
+    setIncome(value)
+    dispatch(setMockParam(value))
+  }
+
+  const handleSetFamily = (value) => {
+    setFamaly(value)
+    dispatch(setMockParam(value))
+  }
+
+  const handleSetInpolitic = (value) => {
+    setPolitic(value)
+    dispatch(setMockParam(value))
+  }
+
+  const handleSetSegment = (value) => {
+    setSegment(value)
+    dispatch(setMockParam(value))
+  }
+
+  const handleSetYear = (value) => {
+    setYear(value)
+    dispatch(setMockParam(value))
+  }
 
   return (
     <div className={styles.filterBlock}>
@@ -23,32 +61,32 @@ export const FiltersBlock = () => {
       {/*  </div>*/}
       {/*</Dropdown>*/}
       <Dropdown title={`Пол: ${gender}`}>
-        {GENDER.map(region =>
-          <Dropdown.Item onClick={() => setGender(region)}>{region}</Dropdown.Item>)}
+        {GENDER.map(gender =>
+          <Dropdown.Item onClick={() => handleSetGender(gender)}>{gender}</Dropdown.Item>)}
       </Dropdown>
       <Dropdown title={`Возраст: ${age}`}>
-        {AGE.map(region =>
-          <Dropdown.Item onClick={() => setAge(region)}>{region}</Dropdown.Item>)}
+        {AGE.map(age =>
+          <Dropdown.Item onClick={() => handleSetAge(age)}>{age}</Dropdown.Item>)}
       </Dropdown>
       <Dropdown title={`Доход: ${income}`}>
-        {INCOME.map(region =>
-          <Dropdown.Item onClick={() => setIncome(region)}>{region}</Dropdown.Item>)}
+        {INCOME.map(income =>
+          <Dropdown.Item onClick={() => handleSetIncome(income)}>{income}</Dropdown.Item>)}
       </Dropdown>
       <Dropdown title={`Семья: ${famaly}`}>
         {FAMILY.map(region =>
-          <Dropdown.Item onClick={() => setFamaly(region)}>{region}</Dropdown.Item>)}
+          <Dropdown.Item onClick={() => handleSetFamily(region)}>{region}</Dropdown.Item>)}
       </Dropdown>
       <Dropdown title={`Политика: ${politic}`}>
-        {POLITIC.map(region =>
-          <Dropdown.Item onClick={() => setPolitic(region)}>{region}</Dropdown.Item>)}
+        {POLITIC.map(user =>
+          <Dropdown.Item onClick={() => handleSetInpolitic(user)}>{user}</Dropdown.Item>)}
       </Dropdown>
       <Dropdown title={`Сегмент: ${segment}`}>
         {SEGMENT.map(region =>
-          <Dropdown.Item onClick={() => setSegment(region)}>{region}</Dropdown.Item>)}
+          <Dropdown.Item onClick={() => handleSetSegment(region)}>{region}</Dropdown.Item>)}
       </Dropdown>
       <Dropdown title={`Год: ${year}`}>
         {YEAR.map(region =>
-          <Dropdown.Item onClick={() => setYear(region)}>{region}</Dropdown.Item>)}
+          <Dropdown.Item onClick={() => handleSetYear(region)}>{region}</Dropdown.Item>)}
       </Dropdown>
     </div>
   );
