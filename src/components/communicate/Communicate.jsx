@@ -41,10 +41,10 @@ export const Communicate = () => {
         </div>
       </div>
       <div className={styles.containerBlock}>
-        <p className={styles.title}>Тест 1</p>
+        <p className={styles.title}>Рейтинг доверия Тест</p>
         <div className={styles.items}>
-          {COMMUNICATE_TV.map((item, index) => {
-            return <RatingItem key={item.id} obj={item} index={index}/>
+          {COMMUNICATE_POLITIC.map((item) => {
+            return <PeopleItem key={item.id} obj={item}/>
           })}
         </div>
       </div>
