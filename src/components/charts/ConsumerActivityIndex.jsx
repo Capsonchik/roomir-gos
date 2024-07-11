@@ -54,9 +54,7 @@ export const ConsumerActivityIndex = () => {
       {
         name: 'Индекс',
         type: 'bar',
-        data: [
-          -12, -8, -7, -1, -1, 1, 1, 1, 1, -1, 0, -4, -2, 1, 1, 2, 5, 11
-        ],
+        data: [-12, -8, -7, -1, -1, 1, 1, 1, 1, -1, 0, -4, -2, 1, 1, 2, 5, 11],
         itemStyle: {
           color: function (params) {
             return params.value > 0 ? '#76C043' : '#E83132';

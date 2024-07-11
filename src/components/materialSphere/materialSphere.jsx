@@ -9,7 +9,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {
   fetchGetAverageCheck,
-  fetchGetDeflyator, fetchGetFreeCashIndex,
+  fetchGetDeflyator,
+  fetchGetFreeCashIndex, fetchGetMockAverageCheck,
+  fetchGetMockDeflyator, fetchGetMockFreeCashIndex,
+  fetchGetMockPriceDynamic,
+  fetchGetMockPurchasingActivityIndex,
+  fetchGetMockSpendingRate,
   fetchGetPriceDynamic,
   fetchGetPurchasingActivityIndex,
   fetchGetSpendingRate
@@ -17,7 +22,7 @@ import {
 import {
   selectAverageCheck,
   selectDeflyator,
-  selectFreeCashIndex, selectPriceDynamics,
+  selectFreeCashIndex, selectMockParam, selectPriceDynamics,
   selectPurchasingActivityIndex,
   selectSpendingRate
 } from "../../store/selectors";
@@ -32,6 +37,7 @@ export const MaterialSphere = () => {
   const freeCashIndex = useSelector(selectFreeCashIndex);
   const averageCheck = useSelector(selectAverageCheck);
   const priceDynamyc = useSelector(selectPriceDynamics);
+  const mockParam = useSelector(selectMockParam);
 
 
 
@@ -43,6 +49,17 @@ export const MaterialSphere = () => {
     dispatch(fetchGetFreeCashIndex());
     dispatch(fetchGetAverageCheck());
   }, [dispatch]);
+
+  useEffect(() => {
+    if(mockParam) {
+      dispatch(fetchGetMockDeflyator(mockParam))
+      dispatch(fetchGetMockSpendingRate(mockParam))
+      dispatch(fetchGetMockPriceDynamic(mockParam))
+      dispatch(fetchGetMockPurchasingActivityIndex(mockParam))
+      dispatch(fetchGetMockFreeCashIndex(mockParam))
+      dispatch(fetchGetMockAverageCheck(mockParam))
+    }
+  }, [mockParam]);
 
   return (
     <div className={styles.container}>
