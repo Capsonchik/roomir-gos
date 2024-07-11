@@ -17,7 +17,7 @@ import {
 import {
   selectAverageCheck,
   selectDeflyator,
-  selectFreeCashIndex,
+  selectFreeCashIndex, selectPriceDynamics,
   selectPurchasingActivityIndex,
   selectSpendingRate
 } from "../../store/selectors";
@@ -31,6 +31,7 @@ export const MaterialSphere = () => {
   const purchasingActivityIndex = useSelector(selectPurchasingActivityIndex);
   const freeCashIndex = useSelector(selectFreeCashIndex);
   const averageCheck = useSelector(selectAverageCheck);
+  const priceDynamyc = useSelector(selectPriceDynamics);
 
 
 
@@ -70,7 +71,7 @@ export const MaterialSphere = () => {
         </div>
         <div className={styles.six}>
           <p>Динамика цены на соц. значимые группы товаров</p>
-          <PriceDinamyc/>
+          <PriceDinamyc data={priceDynamyc}/>
         </div>
       </div>
       <div className={styles.bottomBlock}>
