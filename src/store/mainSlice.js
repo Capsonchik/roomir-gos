@@ -22,7 +22,10 @@ const initialState = {
   purchasingActivityIndex: [],
   freeCashIndex: [],
   averageCheck: [],
-  mockParam: ''
+  mockParam: '',
+  currentQuestionCategory: 'Социальное',
+  currentQuestionCategories: '',
+  currentQuestions: ''
 }
 
 export const mainSlice = createSlice({
@@ -31,7 +34,17 @@ export const mainSlice = createSlice({
   reducers: {
     setMockParam: (state, action) => {
       state.mockParam = action.payload
-    }
+    },
+    setCurrentQuestionCategory: (state, action) => {
+      state.currentQuestionCategory = action.payload
+    },
+    setCurrentQuestionCategories: (state, action) => {
+      state.currentQuestionCategories = action.payload
+    },
+    setCurrentQuestions: (state, action) => {
+      state.currentQuestions = action.payload
+    },
+
   },
   extraReducers: (builder) => {
     builder
@@ -78,7 +91,10 @@ export const mainSlice = createSlice({
 })
 
 export const {
-  setMockParam
+  setMockParam,
+  setCurrentQuestionCategories,
+  setCurrentQuestionCategory,
+  setCurrentQuestions
 } = mainSlice.actions
 
 export default mainSlice.reducer

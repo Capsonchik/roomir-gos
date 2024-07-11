@@ -1,45 +1,93 @@
 import styles from './styles.module.scss';
-import {ConsumerActivityIndex} from "../charts/ConsumerActivityIndex";
-import {Button, ButtonToolbar, SelectPicker, TagPicker} from "rsuite";
-import {useState} from "react";
+import mockData from '../../mockData/static-levels-id-order3.json'
+import {Button, ButtonToolbar, SelectPicker} from "rsuite";
+import {useEffect, useState} from "react";
 import {categorySwitcher} from "../helpers/switchers";
 import {BarChart} from "../charts/BarChart";
 import {QuestionPieChart} from "../charts/questionPieChart";
+import {findObjectByTitle, findQuestionsByName} from "../helpers/finders";
+import {useDispatch, useSelector} from "react-redux";
+import {
+  selectCurrentQuestionCategories,
+  selectCurrentQuestionCategory,
+  selectCurrentQuestions
+} from "../../store/selectors";
+import {setCurrentQuestionCategories, setCurrentQuestionCategory, setCurrentQuestions} from "../../store/mainSlice";
 
 export const SocialSphere = () => {
-  const data = ['БИОЛОГИЧЕСКИЕ', 'ПСИХО-БИОЛОГИЧЕСКИЕ', 'ПСИХОЛОГИЧЕСКИИЕ', 'ПСИХО-СОЦИАЛЬНЫЕ', 'СОЦИАЛЬНЫЕ', 'СОЦИО-БИОЛОГИЧЕСКИЕ'].map(
+  const dispatch = useDispatch()
+  const [selectedItem, setSelectedItem] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const currentCategory = useSelector(selectCurrentQuestionCategory);
+  const currentCategories = useSelector(selectCurrentQuestionCategories);
+  const currentQuestions = useSelector(selectCurrentQuestions);
+  const [test, setTest] = useState()
+  const [questions, setQuestions] = useState()
+  const title = mockData.map(el =>  el.title );
+
+  const data = title.map(
     item => ({ label: item, value: item })
   );
 
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null)
+  useEffect(() => {
+    if(currentCategories) {
+      const a =  currentCategories.map(item => ({ label: item.name, value: item.name }))
+      setTest(a)
+    }
+  }, [currentCategories, currentCategories]);
+
+  // useEffect(() => {
+  //   if(currentQuestions) {
+  //     const questions = currentQuestions.map(item => ({ label: item.question.name, value: item.question.name }))
+  //     setQuestions(questions)
+  //     console.log(questions)
+  //   }
+  // }, [currentQuestions]);
+
+  useEffect(() => {
+    if (currentQuestions) {
+      const questions = currentQuestions.map(item => ({ label: item.question.name, value: item.question.name }));
+      setQuestions(questions);
+      console.log(questions);
+    }
+  }, [currentQuestions]);
+
+
 
   const handleSelectChange = (value) => {
+    const category = findObjectByTitle(value)
+    dispatch(setCurrentQuestionCategory(value))
+    dispatch(setCurrentQuestionCategories(category))
     setSelectedItem(value);
   };
 
   const handleCategoryChange = (value) => {
+    const questions = findQuestionsByName(value, currentCategories)
+    console.log(questions)
+    dispatch(setCurrentQuestions(questions))
     setSelectedCategory(value);
   }
-
   return (
     <div className={styles.container}>
-      {/* График скрыт для необходимо перенести на другую страницу */}
-      {/*<ConsumerActivityIndex/>*/}
       <div className={styles.categoties}>
-        <SelectPicker onChange={handleSelectChange} placeholder={'Сфера'} data={data} style={{ width: 300 }} />
+        <SelectPicker
+          onChange={handleSelectChange}
+          placeholder={'Сфера'}
+          data={data}
+          style={{ width: 300 }}
+        />
         <SelectPicker
           disabled={!selectedItem}
           onChange={handleCategoryChange}
           placeholder={'Категория вопроса'}
-          data={categorySwitcher(selectedItem)}
+          data={test}
           style={{ width: 300 }}
         />
         <SelectPicker
           disabled={!selectedCategory}
-          onChange={handleSelectChange}
+          // onChange={handleSelectChange}
           placeholder={'Вопрос'}
-          data={categorySwitcher(selectedCategory)}
+          data={questions}
           style={{ width: 300 }}
         />
       </div>
