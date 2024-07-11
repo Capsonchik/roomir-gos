@@ -2,10 +2,10 @@ import ReactECharts from "echarts-for-react";
 
 export const ConsumerActivityIndex = () => {
   const option = {
-    title: {
-      text: 'Индекс потребительской уверенности',
-      left: 'center',
-    },
+    // title: {
+    //   text: 'Индекс потребительской уверенности',
+    //   left: 'center',
+    // },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -61,6 +61,11 @@ export const ConsumerActivityIndex = () => {
           color: function (params) {
             return params.value > 0 ? '#76C043' : '#E83132';
           },
+        },
+        label: {
+          show: true,
+          position: 'top',
+          formatter: '{c}',
         },
       },
     ],

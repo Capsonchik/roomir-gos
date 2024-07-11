@@ -21,6 +21,7 @@ import {
   selectPurchasingActivityIndex,
   selectSpendingRate
 } from "../../store/selectors";
+import {ConsumerActivityIndex} from "../charts/ConsumerActivityIndex";
 
 export const MaterialSphere = () => {
   const dispatch = useDispatch();
@@ -72,6 +73,11 @@ export const MaterialSphere = () => {
           <PriceDinamyc/>
         </div>
       </div>
+      <div className={styles.bottomBlock}>
+        <p>Индекс потребительской активности</p>
+        <ConsumerActivityIndex/>
+      </div>
+
     </div>
   );
 };
