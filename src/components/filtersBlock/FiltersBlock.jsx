@@ -1,7 +1,7 @@
 import {Dropdown} from "rsuite";
 import styles from './styles.module.scss';
 import {useState} from "react";
-import {REGION, AGE, GENDER, INCOME, SEGMENT, POLITIC, FAMILY} from "../consts/filterConsts";
+import {REGION, AGE, GENDER, INCOME, SEGMENT, POLITIC, FAMILY, YEAR} from "../consts/filterConsts";
 
 export const FiltersBlock = () => {
   const [region, setRegion] = useState("Москва")
@@ -11,15 +11,17 @@ export const FiltersBlock = () => {
   const [famaly, setFamaly] = useState("Все")
   const [politic, setPolitic] = useState("Все")
   const [segment, setSegment] = useState("Все")
+  const [year, setYear] = useState('2024')
 
   return (
     <div className={styles.filterBlock}>
-      <Dropdown title={`Регион: ${region}`}>
-        <div style={{width: 'auto', height: 400, overflow: "auto"}}>
-          {REGION.map(region =>
-            <Dropdown.Item onClick={() => setRegion(region)}>{region}</Dropdown.Item>)}
-        </div>
-      </Dropdown>
+      {/* Убран регион */}
+      {/*<Dropdown title={`Регион: ${region}`}>*/}
+      {/*  <div style={{width: 'auto', height: 400, overflow: "auto"}}>*/}
+      {/*    {REGION.map(region =>*/}
+      {/*      <Dropdown.Item onClick={() => setRegion(region)}>{region}</Dropdown.Item>)}*/}
+      {/*  </div>*/}
+      {/*</Dropdown>*/}
       <Dropdown title={`Пол: ${gender}`}>
         {GENDER.map(region =>
           <Dropdown.Item onClick={() => setGender(region)}>{region}</Dropdown.Item>)}
@@ -43,6 +45,10 @@ export const FiltersBlock = () => {
       <Dropdown title={`Сегмент: ${segment}`}>
         {SEGMENT.map(region =>
           <Dropdown.Item onClick={() => setSegment(region)}>{region}</Dropdown.Item>)}
+      </Dropdown>
+      <Dropdown title={`Год: ${year}`}>
+        {YEAR.map(region =>
+          <Dropdown.Item onClick={() => setYear(region)}>{region}</Dropdown.Item>)}
       </Dropdown>
     </div>
   );
