@@ -40,6 +40,14 @@ export const Communicate = () => {
           })}
         </div>
       </div>
+      <div className={styles.containerBlock}>
+        <p className={styles.title}>Тест 1</p>
+        <div className={styles.items}>
+          {COMMUNICATE_TV.map((item, index) => {
+            return <RatingItem key={item.id} obj={item} index={index}/>
+          })}
+        </div>
+      </div>
     </div>
   );
 };
