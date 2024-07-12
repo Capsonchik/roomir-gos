@@ -6,5 +6,6 @@ export const API_ROUTES = {
   spendingRate: '/dolya_trat',
   purchasingActivityIndex: '/index_pokupatelskoy_aktivnosti',
   freeCachIndex: '/index_svobodnyh_deneg',
-  avarageCheck: '/dinamica_srednego_cheka'
+  avarageCheck: '/dinamica_srednego_cheka',
+  socialSphere: '/soc_sfera'
 }

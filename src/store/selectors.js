@@ -11,3 +11,6 @@ export const selectCurrentQuestionCategories = (state) => state.main.currentQues
 export const selectCurrentQuestions = (state) => state.main.currentQuestions;
 export const selectQuestion = (state) => state.main.question;
 export const selectPieChartData = (state) => state.main.pieChartData;
+export const selectYear = (state) => state.main.year;
+export const selectQuestionId = (state) => state.main.questionId;
+export const selectRegion = (state) => state.main.region;

@@ -9,11 +9,15 @@ import {
   fetchGetMockPurchasingActivityIndex,
   fetchGetMockSpendingRate,
   fetchGetPriceDynamic,
-  fetchGetPurchasingActivityIndex,
+  fetchGetPurchasingActivityIndex, fetchGetQuestionsData,
   fetchGetSpendingRate
 } from "./actions";
 
 const initialState = {
+  year: 2023,
+  questionId: 0,
+  region: 'russia',
+  error: false,
   cartRegions: [],
   priceDynamic: [],
   socialGoods: [],
@@ -51,6 +55,15 @@ export const mainSlice = createSlice({
     },
     setQuestion: (state, action) => {
       state.question = action.payload
+    },
+    setYear: (state,action) => {
+      state.year = action.payload
+    },
+    setQuestionId: (state, action) => {
+      state.questionId = action.payload
+    },
+    setRegion: (state, action) => {
+      state.region = action.payload
     }
 
   },
@@ -58,42 +71,62 @@ export const mainSlice = createSlice({
     builder
       .addCase(fetchGetCartRegion.fulfilled, (state, action) => {
         state.cartRegions = action.payload
+        state.error = false
       })
       .addCase(fetchGetDeflyator.fulfilled, (state, action) => {
         state.deflation = action.payload
+        state.error = false
       })
       .addCase(fetchGetSpendingRate.fulfilled, (state, action) => {
         state.spendingRate = action.payload
+        state.error = false
       })
       .addCase(fetchGetPriceDynamic.fulfilled, (state, action) => {
         state.priceDynamic = action.payload
+        state.error = false
       })
       .addCase(fetchGetPurchasingActivityIndex.fulfilled, (state, action) => {
         state.purchasingActivityIndex = action.payload
+        state.error = false
       })
       .addCase(fetchGetFreeCashIndex.fulfilled, (state, action) => {
         state.freeCashIndex = action.payload
+        state.error = false
       })
       .addCase(fetchGetAverageCheck.fulfilled, (state, action) => {
         state.averageCheck = action.payload
+        state.error = false
       })
       .addCase(fetchGetMockDeflyator.fulfilled, (state, action) => {
         state.deflation = action.payload
+        state.error = false
       })
       .addCase(fetchGetMockSpendingRate.fulfilled, (state, action) => {
         state.spendingRate = action.payload
+        state.error = false
       })
       .addCase(fetchGetMockPriceDynamic.fulfilled, (state, action) => {
         state.priceDynamic = action.payload
+        state.error = false
       })
       .addCase(fetchGetMockPurchasingActivityIndex.fulfilled, (state, action) => {
         state.purchasingActivityIndex = action.payload
+        state.error = false
       })
       .addCase(fetchGetMockFreeCashIndex.fulfilled, (state, action) => {
         state.freeCashIndex = action.payload
+        state.error = false
       })
       .addCase(fetchGetMockAverageCheck.fulfilled, (state, action) => {
         state.averageCheck = action.payload
+        state.error = false
+      })
+      .addCase(fetchGetQuestionsData.fulfilled, (state, action) => {
+        state.pieChartData = action.payload
+        state.error = false
+      })
+      .addCase(fetchGetQuestionsData.rejected, (state, action) => {
+        state.error = true
       })
   }
 })
@@ -103,7 +136,10 @@ export const {
   setCurrentQuestionCategories,
   setCurrentQuestionCategory,
   setCurrentQuestions,
-  setQuestion
+  setQuestion,
+  setQuestionId,
+  setRegion,
+  setYear
 } = mainSlice.actions
 
 export default mainSlice.reducer

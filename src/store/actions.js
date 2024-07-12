@@ -224,3 +224,22 @@ export const fetchGetMockAverageCheck = createAsyncThunk(
     }
   }
 );
+
+// Ручка для получения ответов на вопрос и их даты
+
+export const fetchGetQuestionsData = createAsyncThunk(
+  'QuestionsData',
+  async (data) => {
+    const {region, question, year} = data
+    try {
+      const response = await axiosRequest.get(`${API_ROUTES.socialSphere}?year=${year}&question=${question}&region=${region}`);
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return 'error';
+      }
+    } catch (error) {
+      return 'throwError(error)';
+    }
+  }
+);

@@ -16,7 +16,7 @@ import {
   setCurrentQuestionCategories,
   setCurrentQuestionCategory,
   setCurrentQuestions,
-  setQuestion
+  setQuestion, setRegion
 } from "../../store/mainSlice";
 
 export const SocialSphere = () => {
@@ -98,9 +98,9 @@ export const SocialSphere = () => {
       <div className={styles.content}>
         <div className={styles.questions}>
           <ButtonToolbar>
-            <Button appearance="default">ВСЯ РОССИЯ</Button>
-            <Button appearance="default">ФЕДЕРАЛЬНЫЙ ОКРУГ</Button>
-            <Button appearance="default">ГОРОД</Button>
+            <Button onClick={() => dispatch(setRegion('russia'))} appearance="default">ВСЯ РОССИЯ</Button>
+            <Button onClick={() => dispatch(setRegion('region'))} appearance="default">ФЕДЕРАЛЬНЫЙ ОКРУГ</Button>
+            <Button onClick={() => dispatch(setRegion('city'))} appearance="default">ГОРОД</Button>
           </ButtonToolbar>
           <div className={styles.questionBlock}>
             <span>Вопрос: </span>

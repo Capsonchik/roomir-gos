@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import {useState} from "react";
 import {REGION, AGE, GENDER, INCOME, SEGMENT, POLITIC, FAMILY, YEAR} from "../consts/filterConsts";
 import {useDispatch} from "react-redux";
-import {setMockParam} from "../../store/mainSlice";
+import {setMockParam, setYear} from "../../store/mainSlice";
 import {useLocation} from "react-router-dom";
 
 export const FiltersBlock = () => {
@@ -15,13 +15,14 @@ export const FiltersBlock = () => {
   const [famaly, setFamaly] = useState("Все")
   const [politic, setPolitic] = useState("Все")
   const [segment, setSegment] = useState("Все")
-  const [year, setYear] = useState('2024')
+  const [currentYear, setCurrentYear] = useState('2024')
 
   const location = useLocation();
 
   const handleSetRegion = (value) => {
     setRegion(value)
     dispatch(setMockParam(value))
+    dispatch(setRegion(value))
   }
 
   const handleSetGender = (value) => {
@@ -55,7 +56,8 @@ export const FiltersBlock = () => {
   }
 
   const handleSetYear = (value) => {
-    setYear(value)
+    setCurrentYear(value)
+    dispatch(setYear(+value))
     dispatch(setMockParam(value))
   }
 
@@ -99,7 +101,7 @@ export const FiltersBlock = () => {
       {location.pathname === '/'
         ? null
         : (
-          <Dropdown title={`Год: ${year}`}>
+          <Dropdown title={`Год: ${currentYear}`}>
             {YEAR.map(region =>
               <Dropdown.Item onClick={() => handleSetYear(region)}>{region}</Dropdown.Item>)}
           </Dropdown>
