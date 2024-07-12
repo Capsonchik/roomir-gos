@@ -1,6 +1,10 @@
 import ReactECharts from "echarts-for-react";
+import {useSelector} from "react-redux";
+import {selectPieChartData} from "../../store/selectors";
 
 export const QuestionPieChart = () => {
+  const pieChartData = useSelector(selectPieChartData);
+
   const option = {
     tooltip: {
       trigger: 'item'
@@ -34,10 +38,7 @@ export const QuestionPieChart = () => {
         labelLine: {
           show: false
         },
-        data: [
-          { value: 1048, name: 'Да' },
-          { value: 735, name: 'Нет' },
-        ]
+        data: pieChartData
       }
     ]
   };

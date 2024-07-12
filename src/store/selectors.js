@@ -10,3 +10,4 @@ export const selectCurrentQuestionCategory = (state) => state.main.currentQuesti
 export const selectCurrentQuestionCategories = (state) => state.main.currentQuestionCategories;
 export const selectCurrentQuestions = (state) => state.main.currentQuestions;
 export const selectQuestion = (state) => state.main.question;
+export const selectPieChartData = (state) => state.main.pieChartData;

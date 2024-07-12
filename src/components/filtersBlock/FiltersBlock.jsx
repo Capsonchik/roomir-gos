@@ -18,7 +18,6 @@ export const FiltersBlock = () => {
   const [year, setYear] = useState('2024')
 
   const location = useLocation();
-  console.log(location)
 
   const handleSetRegion = (value) => {
     setRegion(value)

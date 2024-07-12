@@ -26,7 +26,11 @@ const initialState = {
   currentQuestionCategory: 'Социальное',
   currentQuestionCategories: '',
   currentQuestions: '',
-  question: 'Выберите вопрос'
+  question: 'Выберите вопрос',
+  pieChartData: [
+    { value: 1048, name: 'Да' },
+    { value: 735, name: 'Нет' },
+  ],
 }
 
 export const mainSlice = createSlice({
