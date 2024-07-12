@@ -25,7 +25,8 @@ const initialState = {
   mockParam: '',
   currentQuestionCategory: 'Социальное',
   currentQuestionCategories: '',
-  currentQuestions: ''
+  currentQuestions: '',
+  question: 'Выберите вопрос'
 }
 
 export const mainSlice = createSlice({
@@ -44,6 +45,9 @@ export const mainSlice = createSlice({
     setCurrentQuestions: (state, action) => {
       state.currentQuestions = action.payload
     },
+    setQuestion: (state, action) => {
+      state.question = action.payload
+    }
 
   },
   extraReducers: (builder) => {
@@ -94,7 +98,8 @@ export const {
   setMockParam,
   setCurrentQuestionCategories,
   setCurrentQuestionCategory,
-  setCurrentQuestions
+  setCurrentQuestions,
+  setQuestion
 } = mainSlice.actions
 
 export default mainSlice.reducer

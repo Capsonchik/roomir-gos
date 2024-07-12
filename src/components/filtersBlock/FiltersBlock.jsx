@@ -4,6 +4,7 @@ import {useState} from "react";
 import {REGION, AGE, GENDER, INCOME, SEGMENT, POLITIC, FAMILY, YEAR} from "../consts/filterConsts";
 import {useDispatch} from "react-redux";
 import {setMockParam} from "../../store/mainSlice";
+import {useLocation} from "react-router-dom";
 
 export const FiltersBlock = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,14 @@ export const FiltersBlock = () => {
   const [politic, setPolitic] = useState("Все")
   const [segment, setSegment] = useState("Все")
   const [year, setYear] = useState('2024')
+
+  const location = useLocation();
+  console.log(location)
+
+  const handleSetRegion = (value) => {
+    setRegion(value)
+    dispatch(setMockParam(value))
+  }
 
   const handleSetGender = (value) => {
     setGender(value)
@@ -53,13 +62,17 @@ export const FiltersBlock = () => {
 
   return (
     <div className={styles.filterBlock}>
-      {/* Убран регион */}
-      {/*<Dropdown title={`Регион: ${region}`}>*/}
-      {/*  <div style={{width: 'auto', height: 400, overflow: "auto"}}>*/}
-      {/*    {REGION.map(region =>*/}
-      {/*      <Dropdown.Item onClick={() => setRegion(region)}>{region}</Dropdown.Item>)}*/}
-      {/*  </div>*/}
-      {/*</Dropdown>*/}
+      {location.pathname === '/'
+        ? (
+          <Dropdown title={`Регион: ${region}`}>
+            <div style={{width: 'auto', height: 400, overflow: "auto"}}>
+              {REGION.map(region =>
+                <Dropdown.Item onClick={() => handleSetRegion(region)}>{region}</Dropdown.Item>)}
+            </div>
+          </Dropdown>
+        )
+        : null
+      }
       <Dropdown title={`Пол: ${gender}`}>
         {GENDER.map(gender =>
           <Dropdown.Item onClick={() => handleSetGender(gender)}>{gender}</Dropdown.Item>)}
@@ -84,10 +97,15 @@ export const FiltersBlock = () => {
         {SEGMENT.map(region =>
           <Dropdown.Item onClick={() => handleSetSegment(region)}>{region}</Dropdown.Item>)}
       </Dropdown>
-      <Dropdown title={`Год: ${year}`}>
-        {YEAR.map(region =>
-          <Dropdown.Item onClick={() => handleSetYear(region)}>{region}</Dropdown.Item>)}
-      </Dropdown>
+      {location.pathname === '/'
+        ? null
+        : (
+          <Dropdown title={`Год: ${year}`}>
+            {YEAR.map(region =>
+              <Dropdown.Item onClick={() => handleSetYear(region)}>{region}</Dropdown.Item>)}
+          </Dropdown>
+        )
+      }
     </div>
   );
 };

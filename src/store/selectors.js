@@ -9,3 +9,4 @@ export const selectMockParam = (state) => state.main.mockParam;
 export const selectCurrentQuestionCategory = (state) => state.main.currentQuestionCategory;
 export const selectCurrentQuestionCategories = (state) => state.main.currentQuestionCategories;
 export const selectCurrentQuestions = (state) => state.main.currentQuestions;
+export const selectQuestion = (state) => state.main.question;

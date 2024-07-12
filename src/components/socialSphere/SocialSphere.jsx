@@ -10,9 +10,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {
   selectCurrentQuestionCategories,
   selectCurrentQuestionCategory,
-  selectCurrentQuestions
+  selectCurrentQuestions, selectQuestion
 } from "../../store/selectors";
-import {setCurrentQuestionCategories, setCurrentQuestionCategory, setCurrentQuestions} from "../../store/mainSlice";
+import {
+  setCurrentQuestionCategories,
+  setCurrentQuestionCategory,
+  setCurrentQuestions,
+  setQuestion
+} from "../../store/mainSlice";
 
 export const SocialSphere = () => {
   const dispatch = useDispatch()
@@ -21,8 +26,9 @@ export const SocialSphere = () => {
   const currentCategory = useSelector(selectCurrentQuestionCategory);
   const currentCategories = useSelector(selectCurrentQuestionCategories);
   const currentQuestions = useSelector(selectCurrentQuestions);
-  const [test, setTest] = useState()
-  const [questions, setQuestions] = useState()
+  const question = useSelector(selectQuestion);
+  const [test, setTest] = useState();
+  const [questions, setQuestions] = useState();
   const title = mockData.map(el =>  el.title );
 
   const data = title.map(
@@ -34,21 +40,12 @@ export const SocialSphere = () => {
       const a =  currentCategories.map(item => ({ label: item.name, value: item.name }))
       setTest(a)
     }
-  }, [currentCategories, currentCategories]);
-
-  // useEffect(() => {
-  //   if(currentQuestions) {
-  //     const questions = currentQuestions.map(item => ({ label: item.question.name, value: item.question.name }))
-  //     setQuestions(questions)
-  //     console.log(questions)
-  //   }
-  // }, [currentQuestions]);
+  }, [currentCategories]);
 
   useEffect(() => {
     if (currentQuestions) {
       const questions = currentQuestions.map(item => ({ label: item.question.name, value: item.question.name }));
       setQuestions(questions);
-      console.log(questions);
     }
   }, [currentQuestions]);
 
@@ -63,10 +60,17 @@ export const SocialSphere = () => {
 
   const handleCategoryChange = (value) => {
     const questions = findQuestionsByName(value, currentCategories)
-    console.log(questions)
     dispatch(setCurrentQuestions(questions))
     setSelectedCategory(value);
   }
+
+  const handleQuestionChange = (value) => {
+    dispatch(setQuestion(value))
+    // console.log(value)
+    // console.log('Вопросы', currentQuestions)
+  }
+
+
   return (
     <div className={styles.container}>
       <div className={styles.categoties}>
@@ -85,7 +89,7 @@ export const SocialSphere = () => {
         />
         <SelectPicker
           disabled={!selectedCategory}
-          // onChange={handleSelectChange}
+          onChange={handleQuestionChange}
           placeholder={'Вопрос'}
           data={questions}
           style={{ width: 300 }}
@@ -100,7 +104,7 @@ export const SocialSphere = () => {
           </ButtonToolbar>
           <div className={styles.questionBlock}>
             <span>Вопрос: </span>
-            <span>Употребляете ли вы протеин ?</span>
+            <span>{question}</span>
           </div>
           <div className={styles.pieChart}>
             <QuestionPieChart/>
