@@ -67,7 +67,7 @@ export const SocialSphere = () => {
   const handleQuestionChange = (value) => {
     dispatch(setQuestion(value))
     // console.log(value)
-    // console.log('Вопросы', currentQuestions)
+    console.log('Вопросы', currentQuestions)
   }
 
 
